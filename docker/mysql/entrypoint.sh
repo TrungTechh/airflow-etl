@@ -1,17 +1,5 @@
 #!/bin/bash
 
-# Define variables
-CONTAINER_NAME="mysql"
-MYSQL_USER="root"
-MYSQL_PASSWORD="root"
-DATABASE_NAME="bike_store"
-
-# Check if a folder path is provided as an argument
-if [ $# -eq 0 ]; then
-    echo "Usage: $0 <data_folder_name>"
-    exit 1
-fi
-
 # Get the absolute path to the script's directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 

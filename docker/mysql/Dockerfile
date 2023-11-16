@@ -13,3 +13,5 @@ RUN chmod +x /docker-entrypoint-initdb.d/init.sql
 
 # Expose the MySQL port
 EXPOSE 3306
+
+ENTRYPOINT [ "./entrypoint.sh" ]

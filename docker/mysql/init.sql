@@ -93,50 +93,50 @@ CREATE TABLE if not exists stores (
 -- ------------------------------
 
 -- -----LOAD FILE-------
--- LOAD DATA LOCAL INFILE '/home/trung/bike_store_data/data/brands.csv' INTO TABLE brands
--- FIELDS TERMINATED BY ','
--- LINES TERMINATED BY '\r\n'
--- IGNORE 1 LINES;
+LOAD DATA LOCAL INFILE '/tmp/bike_store_data/brands.csv' INTO TABLE brands
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\r\n'
+IGNORE 1 LINES;
 
--- LOAD DATA LOCAL INFILE '/home/trung/bike_store_data/data/categories.csv' INTO TABLE categories
--- FIELDS TERMINATED BY ','
--- LINES TERMINATED BY '\r\n'
--- IGNORE 1 LINES;
+LOAD DATA LOCAL INFILE '/tmp/bike_store_data/categories.csv' INTO TABLE categories
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\r\n'
+IGNORE 1 LINES;
 
--- LOAD DATA LOCAL INFILE '/home/trung/bike_store_data/data/customers.csv' INTO TABLE customers
--- FIELDS TERMINATED BY ','
--- LINES TERMINATED BY '\r\n'
--- IGNORE 1 LINES;
+LOAD DATA LOCAL INFILE '/tmp/bike_store_data/customers.csv' INTO TABLE customers
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\r\n'
+IGNORE 1 LINES;
 
--- LOAD DATA LOCAL INFILE '/home/trung/bike_store_data/data/order_items.csv' INTO TABLE order_items
--- FIELDS TERMINATED BY ','
--- LINES TERMINATED BY '\r\n'
--- IGNORE 1 LINES;
+LOAD DATA LOCAL INFILE '/tmp/bike_store_data/order_items.csv' INTO TABLE order_items
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\r\n'
+IGNORE 1 LINES;
 
--- LOAD DATA LOCAL INFILE '/home/trung/bike_store_data/data/orders.csv' INTO TABLE orders
--- FIELDS TERMINATED BY ','
--- LINES TERMINATED BY '\r\n'
--- IGNORE 1 LINES;
+LOAD DATA LOCAL INFILE '/tmp/bike_store_data/orders.csv' INTO TABLE orders
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\r\n'
+IGNORE 1 LINES;
 
--- LOAD DATA LOCAL INFILE '/home/trung/bike_store_data/data/products.csv' INTO TABLE products
--- FIELDS TERMINATED BY ','
--- LINES TERMINATED BY '\r\n'
--- IGNORE 1 LINES;
+LOAD DATA LOCAL INFILE '/tmp/bike_store_data/data/products.csv' INTO TABLE products
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\r\n'
+IGNORE 1 LINES;
 
--- LOAD DATA LOCAL INFILE '/home/trung/bike_store_data/data/staffs.csv' INTO TABLE staffs
--- FIELDS TERMINATED BY ','
--- LINES TERMINATED BY '\r\n'
--- IGNORE 1 LINES;
+LOAD DATA LOCAL INFILE '/tmp/bike_store_data/data/staffs.csv' INTO TABLE staffs
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\r\n'
+IGNORE 1 LINES;
 
--- LOAD DATA LOCAL INFILE '/home/trung/bike_store_data/data/stocks.csv' INTO TABLE stocks
--- FIELDS TERMINATED BY ','
--- LINES TERMINATED BY '\r\n'
--- IGNORE 1 LINES;
+LOAD DATA LOCAL INFILE '/tmp/bike_store_data/data/stocks.csv' INTO TABLE stocks
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\r\n'
+IGNORE 1 LINES;
 
--- LOAD DATA LOCAL INFILE '/home/trung/bike_store_data/data/stores.csv' INTO TABLE stores
--- FIELDS TERMINATED BY ','
--- LINES TERMINATED BY '\r\n'
--- IGNORE 1 LINES;
+LOAD DATA LOCAL INFILE '/tmp/bike_store_data/data/stores.csv' INTO TABLE stores
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\r\n'
+IGNORE 1 LINES;
 
 -- ------------------------------
 
