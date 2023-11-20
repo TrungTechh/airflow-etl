@@ -44,169 +44,93 @@ formatted_current_date = now.strftime('%Y-%m-%d')
 with DAG("bike_sales_pipeline", start_date=datetime(2023, 10 ,1), 
     schedule_interval="@daily", default_args=default_args, catchup=False) as dag:
 
-    # creating_database = HiveOperator(
-    #     task_id="creating_database",
-    #     hive_cli_conn_id="hive_conn",
-    #     hql="""
-    #         CREATE DATABASE IF NOT EXISTS bike_store('LOCATION'='warehouse/reports'); 
-    #     """
-    # )
-
-    # ingestion_brands = SparkSubmitOperator(
-    #     task_id="ingestion_brands",
-    #     application="/opt/airflow/dags/scripts/ingestion.py",
-    #     application_args=['--tblName', 'brands', '--executionDate', formatted_current_date],
-    #     conn_id="spark_conn",
-    #     verbose=False
-    # )
-
-    # ingestion_categories = SparkSubmitOperator(
-    #     task_id="ingestion_categories",
-    #     application="/opt/airflow/dags/scripts/ingestion.py",
-    #     application_args=['--tblName', 'categories', '--executionDate', formatted_current_date],
-    #     conn_id="spark_conn",
-    #     verbose=False
-    # )
-
-    # ingestion_products = SparkSubmitOperator(
-    #     task_id="ingestion_products",
-    #     application="/opt/airflow/dags/scripts/ingestion.py",
-    #     application_args=['--tblName', 'products', '--executionDate', formatted_current_date],
-    #     conn_id="spark_conn",
-    #     verbose=False
-    # )
-
-    # ingestion_customers = SparkSubmitOperator(
-    #     task_id="ingestion_customers",
-    #     application="/opt/airflow/dags/scripts/ingestion.py",
-    #     application_args=['--tblName', 'customers', '--executionDate', formatted_current_date],
-    #     conn_id="spark_conn",
-    #     verbose=False
-    # )
-
-    # ingestion_order_items = SparkSubmitOperator(
-    #     task_id="ingestion_order_items",
-    #     application="/opt/airflow/dags/scripts/ingestion.py",
-    #     application_args=['--tblName', 'order_items', '--executionDate', formatted_current_date],
-    #     conn_id="spark_conn",
-    #     verbose=False
-    # )
-
-    # ingestion_orders = SparkSubmitOperator(
-    #     task_id="ingestion_orders",
-    #     application="/opt/airflow/dags/scripts/ingestion.py",
-    #     application_args=['--tblName', 'orders', '--executionDate', formatted_current_date],
-    #     conn_id="spark_conn",
-    #     verbose=False
-    # )
-
-    # ingestion_staffs = SparkSubmitOperator(
-    #     task_id="ingestion_staffs",
-    #     application="/opt/airflow/dags/scripts/ingestion.py",
-    #     application_args=['--tblName', 'staffs', '--executionDate', formatted_current_date],
-    #     conn_id="spark_conn",
-    #     verbose=False
-    # )
-
-    # ingestion_stocks = SparkSubmitOperator(
-    #     task_id="ingestion_stocks",
-    #     application="/opt/airflow/dags/scripts/ingestion.py",
-    #     application_args=['--tblName', 'stocks', '--executionDate', formatted_current_date],
-    #     conn_id="spark_conn",
-    #     verbose=False
-    # )
-
-    # ingestion_stores = SparkSubmitOperator(
-    #     task_id="ingestion_stores",
-    #     application="/opt/airflow/dags/scripts/ingestion.py",
-    #     application_args=['--tblName', 'stores', '--executionDate', formatted_current_date],
-    #     conn_id="spark_conn",
-    #     verbose=False
-    # )
-
-    # transformation = SparkSubmitOperator(
-    #     task_id="transformation",
-    #     application="/opt/airflow/dags/scripts/transformation.py",
-    #     conn_id="spark_conn",
-    #     verbose=False
-    # )
-
-    creating_database = BashOperator(
+    creating_database = HiveOperator(
         task_id="creating_database",
-        bash_command="""
-            ls
+        hive_cli_conn_id="hive_conn",
+        hql="""
+            CREATE DATABASE IF NOT EXISTS bike_store('LOCATION'='warehouse/reports'); 
         """
     )
 
-    ingestion_brands = BashOperator(
+    ingestion_brands = SparkSubmitOperator(
         task_id="ingestion_brands",
-        bash_command="""
-            ls
-        """
+        application="/opt/airflow/dags/scripts/ingestion.py",
+        application_args=['--tblName', 'brands', '--executionDate', formatted_current_date],
+        conn_id="spark_conn",
+        verbose=False
     )
 
-    ingestion_categories = BashOperator(
+    ingestion_categories = SparkSubmitOperator(
         task_id="ingestion_categories",
-        bash_command="""
-            ls
-        """
+        application="/opt/airflow/dags/scripts/ingestion.py",
+        application_args=['--tblName', 'categories', '--executionDate', formatted_current_date],
+        conn_id="spark_conn",
+        verbose=False
     )
 
-    ingestion_products = BashOperator(
+    ingestion_products = SparkSubmitOperator(
         task_id="ingestion_products",
-        bash_command="""
-            ls
-        """
+        application="/opt/airflow/dags/scripts/ingestion.py",
+        application_args=['--tblName', 'products', '--executionDate', formatted_current_date],
+        conn_id="spark_conn",
+        verbose=False
     )
 
-    ingestion_customers = BashOperator(
+    ingestion_customers = SparkSubmitOperator(
         task_id="ingestion_customers",
-        bash_command="""
-            ls
-        """
+        application="/opt/airflow/dags/scripts/ingestion.py",
+        application_args=['--tblName', 'customers', '--executionDate', formatted_current_date],
+        conn_id="spark_conn",
+        verbose=False
     )
 
-    ingestion_order_items = BashOperator(
+    ingestion_order_items = SparkSubmitOperator(
         task_id="ingestion_order_items",
-        bash_command="""
-            ls
-        """
+        application="/opt/airflow/dags/scripts/ingestion.py",
+        application_args=['--tblName', 'order_items', '--executionDate', formatted_current_date],
+        conn_id="spark_conn",
+        verbose=False
     )
 
-    ingestion_orders = BashOperator(
+    ingestion_orders = SparkSubmitOperator(
         task_id="ingestion_orders",
-        bash_command="""
-            ls
-        """
+        application="/opt/airflow/dags/scripts/ingestion.py",
+        application_args=['--tblName', 'orders', '--executionDate', formatted_current_date],
+        conn_id="spark_conn",
+        verbose=False
     )
 
-    ingestion_staffs = BashOperator(
+    ingestion_staffs = SparkSubmitOperator(
         task_id="ingestion_staffs",
-        bash_command="""
-            ls
-        """
+        application="/opt/airflow/dags/scripts/ingestion.py",
+        application_args=['--tblName', 'staffs', '--executionDate', formatted_current_date],
+        conn_id="spark_conn",
+        verbose=False
     )
 
-    ingestion_stocks = BashOperator(
+    ingestion_stocks = SparkSubmitOperator(
         task_id="ingestion_stocks",
-        bash_command="""
-            ls
-        """
+        application="/opt/airflow/dags/scripts/ingestion.py",
+        application_args=['--tblName', 'stocks', '--executionDate', formatted_current_date],
+        conn_id="spark_conn",
+        verbose=False
     )
 
-    ingestion_stores = BashOperator(
+    ingestion_stores = SparkSubmitOperator(
         task_id="ingestion_stores",
-        bash_command="""
-            ls
-        """
+        application="/opt/airflow/dags/scripts/ingestion.py",
+        application_args=['--tblName', 'stores', '--executionDate', formatted_current_date],
+        conn_id="spark_conn",
+        verbose=False
     )
 
-    transformation = BashOperator(
+    transformation = SparkSubmitOperator(
         task_id="transformation",
-        bash_command="""
-            ls
-        """
+        application="/opt/airflow/dags/scripts/transformation.py",
+        conn_id="spark_conn",
+        verbose=False
     )
+
 
 # Set dependencies between tasks
 creating_database.set_downstream(ingestion_brands)
